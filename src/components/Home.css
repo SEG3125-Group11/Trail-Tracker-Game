@@ -1,0 +1,167 @@
+/* =================================================================
+   HOME PAGE  – Landing / Settings
+   (all selectors are nested under .home-root)
+================================================================= */
+
+/* ---------- 1 · GRID LAYOUT ---------- */
+.home-root {
+  display: grid;
+  gap: 3rem;
+  padding: 2rem 1rem 4rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+@media (min-width: 800px) {
+  .home-root {
+    grid-template-columns: 1fr 400px;
+    align-items: start;
+  }
+}
+
+/* ---------- 2 · HERO BANNER ---------- */
+.home-root .hero {
+  position: relative;
+  border-radius: 24px;
+  padding: 4rem 2rem 5rem;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+
+  /* spotlight tint now respects theme accent */
+  background:
+    radial-gradient(circle at 20% 20%,
+      rgba(var(--accent-rgb) / 0.15) 0%,
+      rgba(var(--accent-rgb) / 0.00) 60%),
+    var(--bg);
+}
+
+.home-root .logo {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.home-root .tagline {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* floating fireflies */
+.home-root .fly {
+  position: absolute;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #ffd500;
+  box-shadow: 0 0 8px 4px #ffd50055;
+  animation: home-drift 12s linear infinite;
+  animation-delay: calc(-1s * var(--i));
+}
+
+@keyframes home-drift {
+  0%   { transform: translateY(0) translateX(0);  opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { opacity: 1; }
+  90%  { opacity: 0; }
+  100% { transform: translateY(-220%) translateX(40px); }
+}
+
+/* ---------- 3 · SETTINGS CARD ---------- */
+.home-root .settings-card {
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 20px;
+  padding: 2rem 1.6rem 2.6rem;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+}
+
+.home-root .setting-row { margin-bottom: 1.6rem; }
+
+.home-root .setting-row h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+/* ---------- 4 · PILL BUTTONS ---------- */
+.home-root .pill-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex-wrap: nowrap;          /* ← keeps all pills on one line */
+  overflow-x: auto;           /* in case the card gets too narrow */
+}
+
+.home-root .pill {
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #ffffff55;          /* faint tint */
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.home-root .pill input { display: none; }  /* hide radio buttons */
+
+.home-root .pill.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- 5 · ASSIST TOGGLE ---------- */
+.home-root .assist-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.home-root .switch { position: relative; width: 42px; height: 24px; }
+.home-root .switch input { opacity: 0; width: 0; height: 0; }
+
+.home-root .slider {
+  position: absolute; inset: 0;
+  background: #ccc; border-radius: 24px; transition: 0.3s;
+}
+
+.home-root .slider::before {
+  content: '';
+  position: absolute; left: 3px; top: 3px;
+  width: 18px; height: 18px;
+  background: #fff; border-radius: 50%; transition: 0.3s;
+}
+
+.home-root .switch input:checked + .slider {
+  background: var(--accent);
+}
+.home-root .switch input:checked + .slider::before {
+  transform: translateX(18px);
+}
+
+.home-root .assist-label { font-size: 0.95rem; }
+
+/* ---------- 6 · PLAY BUTTON ---------- */
+.home-root .play-btn {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  color: #fff;
+  background: var(--accent);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.home-root .play-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}

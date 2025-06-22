@@ -1,0 +1,57 @@
+/* sticky top bar */
+.game-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1rem;
+  margin: -2rem -1rem 1.4rem;   /* bleed full width */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #ddd;
+  z-index: 10;
+}
+
+.header-btn {
+  font-size: 0.9rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--accent-forest, #2e8b57);
+  padding: 6px 10px;
+}
+.header-btn:hover { text-decoration: underline; }
+
+.info {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+/* little pills */
+.pill {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent-forest, #2e8b57);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.pill.timer { background: #333; }
+.pill.steps { background: #444; }
+
+/* ensure board gets breathing room under sticky header */
+.game-page {
+  padding-top: 0.6rem;
+}
+
+/* mobile tweaks */
+@media (max-width: 600px) {
+  .header-btn { font-size: 0.8rem; padding: 4px 8px; }
+  .pill       { font-size: 0.7rem; }
+}

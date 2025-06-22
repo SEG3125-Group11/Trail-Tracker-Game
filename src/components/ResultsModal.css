@@ -1,0 +1,76 @@
+/* ================================================================
+   FULL-SCREEN OVERLAY
+================================================================ */
+.results-overlay{
+  position:fixed; inset:0; z-index:999;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.35);
+  overflow:hidden;
+}
+
+/* ---------------------------------------------------------------
+   CONFETTI pieces
+---------------------------------------------------------------- */
+.confetto{
+  position:absolute; top:-10vh;
+  border-radius:2px;
+  animation: confetti-fall 2200ms cubic-bezier(.24,.88,.48,.98) forwards;
+}
+@keyframes confetti-fall{
+  to{
+    transform:
+      translateY(110vh)
+      rotateZ(720deg)
+      rotateX(720deg);
+    opacity:0;
+  }
+}
+
+/* ---------------------------------------------------------------
+   RESULT CARD
+---------------------------------------------------------------- */
+.modal-card{
+  position:relative;
+  background:#fff;
+  padding:2.2rem 3rem 3rem;
+  border-radius:20px;
+  width:min(90vw,460px);
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  text-align:center;
+  animation:drop-in .7s cubic-bezier(.46,1.5,.47,.8);
+}
+@keyframes drop-in{
+  0%  { transform:translateY(-80px) scale(.8); opacity:0; }
+  60% { transform:translateY(10px)  scale(1.02); }
+ 100% { transform:translateY(0)     scale(1);   opacity:1; }
+}
+
+/* bounce for win, shake for lose */
+.modal-card.win { animation-name:drop-in,bounce; }
+@keyframes bounce{70%{transform:translateY(0);} 80%{transform:translateY(-8px);} 100%{transform:translateY(0);} }
+
+.modal-card.lose{ animation-name:drop-in,shake; }
+@keyframes shake{
+  0%,40%,80%  { transform:translateX(0); }
+  20%         { transform:translateX(-8px); }
+  60%         { transform:translateX(8px);  }
+  100%        { transform:translateX(0);    }
+}
+
+/* heading & stats */
+.modal-card h2{ margin:0 0 1.4rem; font-size:1.8rem; color:var(--accent);}
+.modal-card.lose h2{ color:#cc3333; }
+
+.stat{ margin:.4rem 0; font-size:1.1rem;}
+
+/* button */
+.restart-btn{
+  margin-top:2rem;
+  font-size:1.1rem;
+  padding:.8rem 2.4rem;
+  border:none; border-radius:12px;
+  cursor:pointer;
+  color:#fff; background:var(--accent);
+  transition:opacity .2s;
+}
+.restart-btn:hover{ opacity:.9; }

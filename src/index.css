@@ -1,0 +1,169 @@
+/* ================================================================
+   0 · THEME VARIABLES  (Forest default)
+================================================================ */
+/* Forest (default) */
+body.theme-forest {
+  --bg: #f4faf7;
+  --accent: #2e8b57;
+  --accent-rgb: 46 139 87;
+  background: url('/forest.avif') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Coral */
+body.theme-coral {
+  --bg: #fff8f6;
+  --accent: #e66b5b;
+  --accent-rgb: 230 107 91;
+  background: url('/coral.avif') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Nebula */
+body.theme-nebula {
+  --bg: #f7f8ff;
+  --accent: #6b7be6;
+  --accent-rgb: 107 123 230;
+  background: url('/space.avif') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+/* ================================================================
+   1 · BASE LAYOUT & RESETS
+================================================================ */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: #1b2d2a;
+  text-align: center;
+}
+
+main.app { padding: 2rem; }
+
+/* global button styling */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #fff;
+  background: var(--accent);
+}
+button:hover { opacity: 0.9; }
+
+/* ================================================================
+   2 · GAME HEADER  (sticky HUD bar)
+================================================================ */
+.game-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.6rem 1rem;
+  margin: -2rem -1rem 1.4rem;          /* bleed edge-to-edge */
+  background: rgba(var(--accent-rgb) / 0.10);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #ddd;
+}
+
+.header-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.header-btn:hover { text-decoration: underline; }
+
+.info {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.pill {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.pill.timer { background: #333; }
+.pill.steps { background: #444; }
+
+/* ================================================================
+   3 · KEYFRAMES  (used by GameBoard)
+================================================================ */
+@keyframes gb-drawSeg { to { stroke-dashoffset: 0; } }
+
+@keyframes gb-pulse {
+  0%   { transform: scale(1);   opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* ================================================================
+   4 · RESPONSIVE TWEAKS
+================================================================ */
+@media (max-width: 600px) {
+  .header-btn { font-size: 0.8rem; padding: 4px 8px; }
+  .pill       { font-size: 0.68rem; }
+}
+
+/* ================================================================
+   5 · FOOTER (fixed to bottom if content is short)
+================================================================ */
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+main.app {
+  flex: 1;
+  padding: 2rem;
+  padding-bottom: 3rem; /* space for footer */
+}
+
+.app-footer {
+  background: #333;     /* dark grey */
+  color: white;         /* white text */
+  text-align: center;
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #444;
+  margin-top: auto;     /* pushes it to the bottom when possible */
+}
+
+.app-footer a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}
