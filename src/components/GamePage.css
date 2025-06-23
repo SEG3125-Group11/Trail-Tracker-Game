@@ -1,4 +1,4 @@
-/* sticky top bar */
+
 .game-header {
   position: sticky;
   top: 0;
@@ -32,7 +32,7 @@
   flex-wrap: wrap;
 }
 
-/* little pills */
+
 .pill {
   font-size: 0.75rem;
   padding: 4px 10px;
@@ -45,12 +45,12 @@
 .pill.timer { background: #333; }
 .pill.steps { background: #444; }
 
-/* ensure board gets breathing room under sticky header */
+
 .game-page {
   padding-top: 0.6rem;
 }
 
-/* mobile tweaks */
+
 @media (max-width: 600px) {
   .header-btn { font-size: 0.8rem; padding: 4px 8px; }
   .pill       { font-size: 0.7rem; }
