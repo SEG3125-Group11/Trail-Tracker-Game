@@ -1,13 +1,8 @@
-// File: src/components/ResultsModal.jsx
+
 import React, { useEffect, useState } from 'react';
 import './ResultsModal.css';
 
-/**
- * Props
- * ─────────────────────────────────────────────
- * score     { success: boolean, score: number, time: ms }
- * onRestart ()  →  navigate back to Home / start menu
- */
+
 export default function ResultsModal({ score, onRestart }) {
   const { success, score: steps, time } = score ?? { success: false, score: 0, time: 0 };
 
@@ -25,7 +20,6 @@ export default function ResultsModal({ score, onRestart }) {
     setConfetti(pieces);
   }, []);
 
-  /* ------------- helper: mm:ss.t format ----------------- */
   const fmt = (ms) => {
     if (!ms && ms !== 0) return '--:--';
     const s  = (ms / 1000).toFixed(1);
@@ -35,7 +29,6 @@ export default function ResultsModal({ score, onRestart }) {
     return `${m}:${ss}.${tenths}`;
   };
 
-  /* ------------- render ----------------- */
   return (
     <div className="results-overlay">
       {/* confetti */}
