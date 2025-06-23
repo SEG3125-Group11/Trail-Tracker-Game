@@ -1,7 +1,4 @@
-/* ================================================================
-   0 · THEME VARIABLES  (Forest default)
-================================================================ */
-/* Forest (default) */
+
 body.theme-forest {
   --bg: #f4faf7;
   --accent: #2e8b57;
@@ -10,7 +7,7 @@ body.theme-forest {
   background-size: cover;
 }
 
-/* Coral */
+
 body.theme-coral {
   --bg: #fff8f6;
   --accent: #e66b5b;
@@ -19,7 +16,7 @@ body.theme-coral {
   background-size: cover;
 }
 
-/* Nebula */
+
 body.theme-nebula {
   --bg: #f7f8ff;
   --accent: #6b7be6;
@@ -29,9 +26,7 @@ body.theme-nebula {
 }
 
 
-/* ================================================================
-   1 · BASE LAYOUT & RESETS
-================================================================ */
+
 *,
 *::before,
 *::after { box-sizing: border-box; }
@@ -59,9 +54,7 @@ button {
 }
 button:hover { opacity: 0.9; }
 
-/* ================================================================
-   2 · GAME HEADER  (sticky HUD bar)
-================================================================ */
+
 .game-header {
   position: sticky;
   top: 0;
@@ -109,9 +102,7 @@ button:hover { opacity: 0.9; }
 .pill.timer { background: #333; }
 .pill.steps { background: #444; }
 
-/* ================================================================
-   3 · KEYFRAMES  (used by GameBoard)
-================================================================ */
+
 @keyframes gb-drawSeg { to { stroke-dashoffset: 0; } }
 
 @keyframes gb-pulse {
@@ -119,17 +110,13 @@ button:hover { opacity: 0.9; }
   100% { transform: scale(1.4); opacity: 0; }
 }
 
-/* ================================================================
-   4 · RESPONSIVE TWEAKS
-================================================================ */
+
 @media (max-width: 600px) {
   .header-btn { font-size: 0.8rem; padding: 4px 8px; }
   .pill       { font-size: 0.68rem; }
 }
 
-/* ================================================================
-   5 · FOOTER (fixed to bottom if content is short)
-================================================================ */
+
 html, body {
   height: 100%;
   display: flex;
