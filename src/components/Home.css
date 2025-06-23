@@ -1,9 +1,4 @@
-/* =================================================================
-   HOME PAGE  – Landing / Settings
-   (all selectors are nested under .home-root)
-================================================================= */
 
-/* ---------- 1 · GRID LAYOUT ---------- */
 .home-root {
   display: grid;
   gap: 3rem;
@@ -19,7 +14,7 @@
   }
 }
 
-/* ---------- 2 · HERO BANNER ---------- */
+
 .home-root .hero {
   position: relative;
   border-radius: 24px;
@@ -28,7 +23,7 @@
   overflow: hidden;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
 
-  /* spotlight tint now respects theme accent */
+
   background:
     radial-gradient(circle at 20% 20%,
       rgba(var(--accent-rgb) / 0.15) 0%,
@@ -49,7 +44,7 @@
   opacity: 0.8;
 }
 
-/* floating fireflies */
+
 .home-root .fly {
   position: absolute;
   width: 6px; height: 6px; border-radius: 50%;
@@ -67,7 +62,7 @@
   100% { transform: translateY(-220%) translateX(40px); }
 }
 
-/* ---------- 3 · SETTINGS CARD ---------- */
+
 .home-root .settings-card {
   backdrop-filter: blur(16px);
   background: rgba(255, 255, 255, 0.55);
@@ -92,22 +87,22 @@
   gap: 0.5rem;
   flex-wrap: wrap;
   gap: 0.5rem;
-  flex-wrap: nowrap;          /* ← keeps all pills on one line */
-  overflow-x: auto;           /* in case the card gets too narrow */
+  flex-wrap: nowrap;         
+  overflow-x: auto;          
 }
 
 .home-root .pill {
   font-size: 0.9rem;
   padding: 6px 14px;
   border-radius: 999px;
-  background: #ffffff55;          /* faint tint */
+  background: #ffffff55;          
   border: 2px solid var(--accent);
   color: var(--accent);
   cursor: pointer;
   transition: all 0.25s;
 }
 
-.home-root .pill input { display: none; }  /* hide radio buttons */
+.home-root .pill input { display: none; }  
 
 .home-root .pill.active {
   background: var(--accent);
