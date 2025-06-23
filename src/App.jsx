@@ -6,9 +6,7 @@ import GamePage from './components/GamePage.jsx';
 import ResultsModal from './components/ResultsModal.jsx';
 import Footer from './components/Footer.jsx'; 
 
-/* -----------------------------------------------------------
-   App: controls screen flow & theme class on <body>
------------------------------------------------------------- */
+
 export default function App() {
   /* which page? */
   const [screen, setScreen] = useState('home');  // 'home' | 'game' | 'result'
