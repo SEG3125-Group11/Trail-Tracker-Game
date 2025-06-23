@@ -1,14 +1,8 @@
-// File: src/components/Home.jsx
+
 import React from 'react';
 import './Home.css';
 
-/**
- * Props
- * ─────
- * config   {difficulty, theme, assist}
- * setConfig(newConfig)         // update selections
- * onStart  ()                  // begin the game
- */
+
 export default function Home({ config, setConfig, onStart }) {
   /* options */
   const DIFFICULTIES = [
