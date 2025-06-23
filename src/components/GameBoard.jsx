@@ -1,11 +1,9 @@
 // File: src/components/GameBoard.jsx
 import React, { useEffect, useRef, useState } from 'react';
-import './GameBoard.css';              // ← ensure this import is present
+import './GameBoard.css';              
 
 
-/* -------------------------------------------------------------
-   Level table  (tweak steps / hold times as you like)
---------------------------------------------------------------*/
+
 const LEVEL = {
   novice:    { size: 4, steps: 5, hold: 3300 },
   journeyer: { size: 5, steps: 8, hold: 3000 },
@@ -15,9 +13,7 @@ const LEVEL = {
 /* Pixels per millisecond for the yellow trail */
 const SPEED_PX_MS = 0.20;
 
-/* -------------------------------------------------------------
-   GameBoard component
---------------------------------------------------------------*/
+
 export default function GameBoard({ config, onComplete, onStep, onRecallStart }) {
 
   const { size, steps, hold } = LEVEL[config.difficulty];
@@ -33,7 +29,7 @@ export default function GameBoard({ config, onComplete, onStep, onRecallStart })
 
   const gridRef = useRef(null);
 
-  /* ---------- build path + animate WATCH phase ---------- */
+  
   useEffect(() => {
     const p = buildPath(size, steps);
     setPath(p); setGlow([]); setSegs([]);
@@ -57,7 +53,7 @@ export default function GameBoard({ config, onComplete, onStep, onRecallStart })
     }, total + hold);
   }, [config]);
 
-  /* ---------- global pointer up ends drag ---------- */
+ 
   useEffect(()=>{
     const end=()=>finishDrag();
     window.addEventListener('mouseup',end);
@@ -66,7 +62,7 @@ export default function GameBoard({ config, onComplete, onStep, onRecallStart })
                window.removeEventListener('touchend',end);};
   });
 
-  /* ---------- helper functions ---------- */
+
   const idx = (n,r,c)=> r*n+c;
 
   function buildPath(n,len){
@@ -103,7 +99,7 @@ export default function GameBoard({ config, onComplete, onStep, onRecallStart })
              len:len.toFixed(1), delay, dur };
   }
 
-  /* ---------- drag logic ---------- */
+  
   const begin = (i) => {
   if (phase !== 'recall') return;
 
