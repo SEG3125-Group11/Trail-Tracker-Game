@@ -1,6 +1,4 @@
-/* ================================================================
-   FULL-SCREEN OVERLAY
-================================================================ */
+
 .results-overlay{
   position:fixed; inset:0; z-index:999;
   display:flex; align-items:center; justify-content:center;
@@ -8,9 +6,7 @@
   overflow:hidden;
 }
 
-/* ---------------------------------------------------------------
-   CONFETTI pieces
----------------------------------------------------------------- */
+
 .confetto{
   position:absolute; top:-10vh;
   border-radius:2px;
@@ -26,9 +22,7 @@
   }
 }
 
-/* ---------------------------------------------------------------
-   RESULT CARD
----------------------------------------------------------------- */
+
 .modal-card{
   position:relative;
   background:#fff;
