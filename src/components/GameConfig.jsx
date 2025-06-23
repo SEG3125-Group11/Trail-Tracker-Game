@@ -1,4 +1,4 @@
-// src/components/GameConfig.jsx
+
 import React from 'react';
 
 function GameConfig({ config, setConfig, onStart }) {
