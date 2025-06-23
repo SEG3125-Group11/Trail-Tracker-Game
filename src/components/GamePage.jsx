@@ -10,7 +10,7 @@ export default function GamePage({ config, onGameEnd, onRestart, onHome }) {
   const timerRef = useRef(null);
   const startTimeRef = useRef(null);
 
-  // Start timer only when onRecallStart() is triggered from GameBoard
+  
   const handleRecallStart = () => {
     if (timerRef.current) return; // avoid restarting
 
@@ -21,19 +21,19 @@ export default function GamePage({ config, onGameEnd, onRestart, onHome }) {
     setIsTiming(true);
   };
 
-  // Stop + clean timer
+
   const stopTimer = () => {
     clearInterval(timerRef.current);
     timerRef.current = null;
     setIsTiming(false);
   };
 
-  // Cleanup timer on unmount
+
   useEffect(() => {
     return () => stopTimer();
   }, []);
 
-  // Format mm:ss.t
+
   const fmt = (ms) => {
     const s = (ms / 1000).toFixed(1);
     const [secs, tenths] = s.split('.');
